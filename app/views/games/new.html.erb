@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center my-4">
+    <div class="col-9 justify-content-center">
+      <h1 class='text-center my-4'>Longest word game</h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-center my-4">
+    <div class="col-9 d-flex justify-content-center">
+        <% @letters.each do |letter| %>
+          <div class="letter-card">
+            <p class="letter-text"><strong><%= letter %></strong></p>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center my-4">
+    <div class="col-4 my-4">
+    <p class="text-center">What is the longest word you can find?</p>
+      <form method ="post" action="/score" data-turbo="false">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control mb-2" name="attempt">
+            <input type="submit" class="btn btn-outline-primary mb-2" value="Submit">
+        </div>
+        <%= hidden_field_tag :grid, @letters %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </form>
+    </div>
+  </div>
+</div>

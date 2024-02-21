@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center my-4">
+    <div class="col-9 justify-content-center">
+      <% if !@is_in_grid %>
+        <p>Sorry but <strong><%= @attempt.upcase %></strong> can't be built out of <%= @letters %>.</p>
+      <% elsif !@is_in_dict %>
+        <p>Sorry but <strong><%= @attempt.upcase %></strong> does not seem to be a valid English word...</p>
+      <% else %>
+      <p><strong>Congratulations!</strong> <%= @attempt.upcase %> is a valid English word!</p>
+      <% end %>
+
+      <%= link_to "Play again!", "/new", class:"text-center link-primary mt-5" %>
+
+    </div>
+  </div>
+</div>
